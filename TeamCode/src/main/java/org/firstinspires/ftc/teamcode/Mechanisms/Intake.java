@@ -22,13 +22,14 @@ public class Intake {
         intake2 = hardwareMap.get(DcMotor.class, "M2");
         intake1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         intake2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        intake2.setDirection(DcMotor.Direction.REVERSE);
         guideR = hardwareMap.get(Servo.class, "gr");
         guideL = hardwareMap.get(Servo.class, "gl");
     }
 
     public void setSpeed(double speed) {
         intake1.setPower(speed);
-        intake2.setPower(-speed);
+        intake2.setPower(speed);
     }
 
     public void moveGuides(Direction direction) {
